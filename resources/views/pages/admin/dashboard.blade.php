@@ -14,7 +14,10 @@
                     </h5>
                     <p class="text-gray-500">Let's make a proper jobs.</p>
                 </div>
-                <a href="{{ route('admin-job-create') }}" class="px-4 py-2 bg-black text-white rounded-lg w-fit">Create Job</a>
+                <div class="flex flex-row items-center gap-x-2">
+                    <a href="{{ route('admin-job-create') }}" class="px-4 py-2 bg-black text-white rounded-lg w-fit">Create Job</a>
+                    <a href="{{ route('home') }}" class="px-4 py-2 ring-1 ring-black rounded-lg w-fit">Go to Portal</a>
+                </div>
             </div>
             <div class="grid grid-cols-2 gap-4 h-fit">
                 <div class="flex flex-col space-y-1 bg-white shadow-sm rounded-lg p-6 ">

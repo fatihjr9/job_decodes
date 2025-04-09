@@ -28,6 +28,8 @@ Route::middleware([
         Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin-dashboard');
         // user management
         Route::get('/admin/manage-user', [AdminController::class, 'manageUser'])->name('admin-manage-user');
+        Route::get('/admin/manage-user/create', [AdminController::class, 'userCreate'])->name('admin-create-user');
+        Route::post('/admin/manage-user/create', [AdminController::class, 'userStore'])->name('admin-store-user');
         Route::get('/admin/manage-user/edit/{id}', [AdminController::class, 'userEdit'])->name('admin-edit-user');
         Route::put('/admin/manage-user/edit/{id}', [AdminController::class, 'userUpdate'])->name('admin-update-user');
         Route::delete('/admin/manage-user/{id}', [AdminController::class, 'userDelete'])->name('admin-delete-user');

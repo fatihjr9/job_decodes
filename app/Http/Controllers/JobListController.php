@@ -66,10 +66,11 @@ class JobListController extends Controller
             'location' => 'required|string|max:255',
             'job_title' => 'required|string|max:255',
             'department' => 'required|string|max:255',
-            'published_at' => 'required|date|after_or_equal:today',
+            'published_at' => 'required|date',
             'expired_at' => 'required|date|after:published_at',
             'status' => 'required|string|max:255',
         ]);
+        $data['company_logo'] = $request->file('company_logo') ? $request->file('company_logo')->store('logos', 'public') : $job->company_logo;
         $data['description'] = $request->input('description', '');
         if ($request->hasFile('company_logo')) {
             $data['company_logo'] = $request->file('company_logo')->store('logos', 'public');

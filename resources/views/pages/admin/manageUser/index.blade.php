@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Manage User') }}
-        </h2>
+        <div class="flex flex-row items-center justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Manage User') }}
+            </h2>
+            <a href="{{ route('admin-create-user') }}" class="bg-black text-white px-4 py-2 rounded-lg">
+                Create User
+            </a>
+        </div>
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

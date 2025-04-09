@@ -19,9 +19,15 @@
                         </div>
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-900">Company logo</label>
-                            <input type="file" name="company_logo" accept="image/*" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Doe" required />
-                            @error('image')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
-                        </div>
+                            <input type="file" name="company_logo" accept="image/*" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+                            @if ($job->company_logo)
+                                <p class="text-sm text-gray-600 mt-2">Current Logo:</p>
+                                <img src="{{ asset('storage/' . $job->company_logo) }}" class="w-20 h-20 object-contain mb-2 border" />
+                            @endif
+                            @error('company_logo')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>                        
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-900">Job Title</label>
                             <input type="text" name="job_title" value="{{ old('job_title', $job->job_title) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Doe" required />
@@ -34,11 +40,13 @@
                         </div>
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-900">Published at</label>
-                            <input type="date" min="{{ now()->toDateString() }}" name="published_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Doe" required />
+                            <input type="date" value="{{ old('published_at', \Carbon\Carbon::parse($job->published_at)->format('Y-m-d')) }}" name="published_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Doe" required />
+                            @error('published_at')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                         </div>
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-900">Expired at</label>
-                            <input type="date" min="{{ now()->toDateString() }}" name="expired_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Doe" required />
+                            <input type="date" value="{{ old('expired_at', \Carbon\Carbon::parse($job->expired_at)->format('Y-m-d')) }}" name="expired_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Doe" required />
+                            @error('expired_at')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                         </div>
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-900">Status</label>
