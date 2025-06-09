@@ -23,7 +23,7 @@
                 <div class="flex flex-row items-center justify-between max-w-7xl mx-auto p-4">
                     <div class="flex items-center">
                         <a href="{{ url('/') }}" class="text-gray-800 text-lg font-semibold">
-                            Loker Decodes Fatih
+                            Jobseeker
                         </a>
                     </div>
         
